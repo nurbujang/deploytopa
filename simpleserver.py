@@ -5,7 +5,33 @@
 # http://127.0.0.1:5000 > hello from simple server
 # Crtl + C
 # pip freeze > requirement.txt > ls > (requirements.txt will be there)
-# git commit to github
+# git commit to github, check to make sure configuration files dont come up there
+
+# login to pythonanywhere > focus on CONSOLE and WEB APPS
+# copy https link of deploypa from github
+# > in bash console, git clone https://github.com/nurbujang/deploytopa.git 
+# > ls > deploytopa should be there
+# > cd deploytopa > ls (will have all 4 files there)
+# still in bash: 09:52 ~/deploytopa (main)$ pip install -r requirements.txt
+
+# NOW WE NEED TO DEPLOY THIS WEB APPLICATION - WE BASICALLY MAKE A NEW WEB APP
+# snake > All Web Apps > add a new web app 
+# (if theres alread one, delete it first - delete nurbujang.pythonanywhere.com)
+# > next > flask > python 3.10 (ours is 3.11)
+# change path to /home/nurbujang/deploytopa/simpleserver.py
+# > Configuration for nurbujang.pythonanywhere.com 
+
+####### something wrong bc it got overwritten!!!
+# snake > bash > cat simpleserver.py > says hello from flask, instead of hello from simple server
+
+# IN BASH:  10:06 ~/deploytopa (main)$ git pull (Already up to date.)
+# edit simpleserver
+
+
+
+
+
+
 
 
 
@@ -16,7 +42,7 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 @app.route('/', methods=['Get'])
 
 def getAllBands():
-    return "hello from simple server"
+    return "hello from simple server 22"
 
 if __name__ == "__main__":
     app.run(debug=True)
