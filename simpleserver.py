@@ -81,7 +81,7 @@
 # mysql = {
 #     'host':"localhost",
 #     'user':"root",
-#     'password':"rootroot",
+#     'password':"",
 #     'database':"project"
 # }
 
@@ -98,7 +98,72 @@
 # # Pyre type checker
 # .pyre/
 # dbconfig
-# push on github
+# push on github from venv VS
+# git pull on bash
+
+# Next:
+# 1. update dbconfig on bash
+# in bash: 13:16 ~/deploytopa (main)$ vi dbconfig.py, 
+# change these: 'host':"localhost", 'user':"root", 'password':"rootroot", 'database':"project" } to:
+        # get info to replace: go back to dash > Databases > 
+        # MySQL settings
+        # Connecting:
+        # Use these settings in your web applications.
+        # Database host address:
+        # nurbujang.mysql.pythonanywhere-services.com
+        # Username:
+        # nurbujang
+# in vi, use arrow to go to where to edit, type i, 
+# then can paste nurbujang.mysql.pythonanywhere-services.com as host
+# username nurbujang
+# password rootroot
+#  database nurbujang$project
+# press escape (insert will disappear from bottom left)
+# press :wq (writing quit), enter (will go back to bash). to quit without changing :q! enter
+
+# from dash, click Web (top right), reload nurbujang.pythonanywhere.com 
+# click Configuration for nurbujang.pythonanywhere.com > still hello simple server 22
+
+# So, need to change to server I'm running to
+# ls on bash -  we want to use server1.py
+# so how to change? 
+    #   click web, click WSGI configuration file: /var/www/nurbujang_pythonanywhere_com_wsgi.py (this is the configuration file)
+    # change: # import flask app but need to call it "application" for WSGI to work #from simpleserver import app as application  # noqa
+    # to : from server1 import app as application  # noqa
+# web > reload nurbujang.pythonanywhere.com >  Configuration for nurbujang.pythonanywhere.com 
+# will get: Not Found The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+# change url to: http://nurbujang.pythonanywhere.com/books (i got test, 1, 123, me)
+######################## andrew got internal Server Error > go back to Web > Log files > Error log nurbujang.pythonanywhere.com.error.log (access denied for andrew bc of wrong password)
+# change url to http://nurbujang.pythonanywhere.com/bookviewer.html > will see table but no (i got test, 1, 123, me)
+# so check bookviewer.html, 
+# function getAllAjax(){
+#         # $.ajax({
+#         #     "url": "http://127.0.0.1:5000/books", <<<<<< change to /books
+# function createBookAjax(book){
+#         //var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3000}
+#         console.log(JSON.stringify(book));
+#         $.ajax({
+#             "url": "http://127.0.0.1:5000/books", <<<<<< change to /books
+# function updateBookAjax(book){
+#         //var car = {"reg":"12 D 1234","price":8000}
+#         console.log(JSON.stringify(book));
+#         $.ajax({
+#             "url": "http://127.0.0.1:5000/books/"+encodeURI(book.id), <<<<<< change to /books
+# function deleteBookAjax(id){
+#         //console.log(JSON.stringify('deleting '+id));
+#         $.ajax({
+#             "url": "http://127.0.0.1:5000/books/"+encodeURI(id), <<<<<< change to /books
+# push to github
+
+
+
+
+
+
+
+
+
+
 
 
 
