@@ -25,7 +25,70 @@
 # snake > bash > cat simpleserver.py > says hello from flask, instead of hello from simple server
 
 # IN BASH:  10:06 ~/deploytopa (main)$ git pull (Already up to date.)
-# edit simpleserver
+# edit simpleserver in VScode and push
+# git pull in bash > error: Your local changes to the following files would be overwritten by merge:
+        # simpleserver.py Please commit your changes or stash them before you merge. Aborting
+# use force git pull. How? in bash: git fetch > cat simpleserver.py > but still says Hello from flask
+# FAILED, SO USE git reset --hard origin/master. how?
+# in bash: 10:16 ~/deploytopa (main)$ git reset --hard origin/main
+#                   HEAD is now at 4b48b30 simple server 22
+# git pull > already up to date > cat simpleserver.py > says hello from simple server 22
+# YAYYYY
+
+# SNAKE, All web apps, reload nurbujang.pythonanywhere.com > will say hello from simple server 22
+
+# go back to pa dashboard, > databases(top right)
+# > mysql password rootroot
+# MySQL settings
+# Connecting:
+# Use these settings in your web applications.
+# Database host address: nurbujang.mysql.pythonanywhere-services.com
+# Username: nurbujang
+# create a database > name it project > password rootroot
+# click nurbujang$project console (max 2, so kill unused ones)
+# mysql> show databases;
+# +--------------------+
+# | Database           |
+# +--------------------+
+# | information_schema |
+# | nurbujang$default  |
+# | nurbujang$project  |
+# | nurbujang$wsaa     |
+# | performance_schema |
+# mysql> create database project;
+# ERROR 1044 (42000): Access denied for user 'nurbujang'@'%' to database 'project' > WHYYY?
+# mysql> show tables;
+# Empty set (0.01 sec)
+
+# copy from dr10 - bookDAO.py, bookviewer.html, dbconfig_template.py, server1.py
+# put into deploytopa
+# mysql> create table book(
+#     -> id int not null auto_increment primary key,
+#     -> author varchar(250),
+#     -> title varchar(250),
+#     -> price int);
+# mysql> insert into book (title, author, price) values ('test', 'me', 123);
+# Query OK, 1 row affected (0.00 sec)
+# mysql> select * from book;
+# +----+--------+-------+-------+
+# | id | author | title | price |
+# +----+--------+-------+-------+
+# |  1 | me     | test  |   123 |
+# +----+--------+-------+-------+
+# 1 row in set (0.00 sec)
+
+# edit dbconfig_template.py and save as dbconfig.py
+# mysql = {
+#     'host':"localhost",
+#     'user':"root",
+#     'password':"rootroot",
+#     'database':"project"
+# }
+
+# try and upload this without the MySQL package
+# if that doesn't work, if I get an error saying that it doesn't work, 
+# then I will do it with the package
+# on VS venv, push to github
 
 
 
