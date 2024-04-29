@@ -88,10 +88,17 @@
 # try and upload this without the MySQL package
 # if that doesn't work, if I get an error saying that it doesn't work, 
 # then I will do it with the package
-# on VS venv, push to github
+# on VS venv, push to github (make sure to git pull first if we made changes elsewhere) - if cannot push, git config pull.rebase false > git pull > git push
+# check if all are pushed on github - yes
 
+# go to bash console, 11:48 ~/deploytopa (main)$ git pull 
+# should have gitignore, license, readme, bookDAO, bookviewer, dbconfig, dbconfig_template, requirements, server1, simpleserver
 
-
+# in .gitignore: (to not push db.config on github)
+# # Pyre type checker
+# .pyre/
+# dbconfig
+# push on github
 
 
 
