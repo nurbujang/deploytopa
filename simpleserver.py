@@ -1,3 +1,4 @@
+# START WITH ONLY simpleserver.py, gitignore, licence and readme in deploytopa
 # python -m venv venv
 # VM On Linux: source ./venv/bin/activate
 # run python simpleserver.py > it will say No module named 'flask'
