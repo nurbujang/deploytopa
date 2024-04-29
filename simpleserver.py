@@ -135,7 +135,7 @@
 # change url to: http://nurbujang.pythonanywhere.com/books (i got test, 1, 123, me)
 ######################## andrew got internal Server Error > go back to Web > Log files > Error log nurbujang.pythonanywhere.com.error.log (access denied for andrew bc of wrong password)
 # change url to http://nurbujang.pythonanywhere.com/bookviewer.html > will see table but no (i got test, 1, 123, me)
-# so check bookviewer.html, 
+# so check bookviewer.html, change url in all Ajax
 # function getAllAjax(){
 #         # $.ajax({
 #         #     "url": "http://127.0.0.1:5000/books", <<<<<< change to /books
@@ -153,19 +153,26 @@
 #         //console.log(JSON.stringify('deleting '+id));
 #         $.ajax({
 #             "url": "http://127.0.0.1:5000/books/"+encodeURI(id), <<<<<< change to /books
-# push to github
+# push to github from  venv
+# git pull on bash
+# > reload nurbujang.pythonanywhere.com >  Configuration for nurbujang.pythonanywhere.com
+# go to http://nurbujang.pythonanywhere.com/bookviewer.html, 
+# # will get Books
+# id 	Title 	Author 	Price 	Update 	Delete
+# 1	me	test	123	
 
+# lets create, ud, can click to delete, update etc
+# andrew got error, BookDAO object has no attribute db
+# def delete(self, id):
+#         cursor = self.getcursor()
+#         sql="delete from book where id = %s"
+#         values = (id,)
 
+#         cursor.execute(sql, values)
 
-
-
-
-
-
-
-
-
-
+#         self.connection.commit() <<<< andrew had it as self.db.commit()
+# push from venv, pull in bash. 
+# > reload nurbujang.pythonanywhere.com >  Configuration for nurbujang.pythonanywhere.com
 
 
 
